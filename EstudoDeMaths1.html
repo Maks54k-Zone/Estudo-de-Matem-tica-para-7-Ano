@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo de Matemática 3.º Ciclo</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: #f0f8ff;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf7aiJ7E9F-bEzDqvJK3wInz93qMVdYEPy5Q&s);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
+
+        .page-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .content-box {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(12, 30, 60, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+            padding: 32px 36px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            margin: 0 0 16px;
+            font-size: 2rem;
+            letter-spacing: 0.04em;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+        }
+
+        p.intro {
+            margin: 0 0 32px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #dbefff;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 14px;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        li::before {
+            content: "→";
+            display: inline-block;
+            width: auto;
+            height: auto;
+            margin-right: 14px;
+            background: transparent;
+            color: rgb(127, 255, 212);
+            text-align: center;
+            line-height: normal;
+            font-weight: 700;
+        }
+
+        .note {
+            margin-top: 24px;
+            font-size: 0.95rem;
+            color: #a2cbff;
+        }
+
+        .button-link {
+            display: inline-block;
+            margin-top: 24px;
+            text-decoration: none;
+        }
+
+        .button-link button {
+            appearance: none;
+            border: 1px solid rgba(127, 255, 212, 0.7);
+            border-radius: 14px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #05314f;
+            background: linear-gradient(135deg, rgba(127, 255, 212, 0.95), rgba(58, 194, 255, 0.9));
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        }
+
+        .button-link button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.05);
+        }
+
+        @media (max-width: 640px) {
+            .content-box {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="content-box">
+            <h1>Estudo de Números Inteiros</h1>
+            <p class="intro">Este é o primeiro grande conteúdo novo do 3.º ciclo. Aqui você aprende sobre números inteiros, módulos e operações com regras de sinais.</p>
+            <ul>
+                <li>Conceito de número inteiro: compreensão dos números positivos, negativos e o zero.</li>
+                <li>Representação na reta numérica: ordenação e comparação de números inteiros.</li>
+                <li>Módulo: o conceito de valor absoluto de um número.</li>
+                <li>Operações: regras de sinais para a adição, subtração, multiplicação e divisão.</li>
+                <li>Potências: potências de base inteira e expoente natural.</li>
+            </ul>
+            <p class="note">Dica: visualize a reta numérica para entender melhor a posição dos números positivos e negativos.</p>
+                <a class="button-link" href="EstudoDeMaths.html"><button>Voltar para o início</button></a>
+        </div>
+    </div>
+</body>
+</html>

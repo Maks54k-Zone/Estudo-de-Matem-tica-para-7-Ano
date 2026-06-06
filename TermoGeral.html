@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termo Geral</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #05121f;
+            --panel: rgba(7, 27, 55, 0.92);
+            --panel-border: rgba(255, 255, 255, 0.12);
+            --text: #e8f2ff;
+            --muted: #afcdfa;
+            --accent: #7dfff2;
+            --button-bg: rgba(125, 255, 242, 0.18);
+            --button-border: rgba(125, 255, 242, 0.35);
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf7aiJ7E9F-bEzDqvJK3wInz93qMVdYEPy5Q&s") center/cover no-repeat fixed;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 11, 28, 0.72);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-wrapper { 
+            position: relative; 
+            z-index: 1; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            padding: 40px 20px; 
+        }
+
+        .card {
+            width: min(100%, 980px);
+            background: var(--panel);
+            border-radius: 20px;
+            border: 1px solid var(--panel-border);
+            padding: 42px 40px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+            backdrop-filter: blur(8px);
+        }
+
+        h1.title { 
+            margin: 0 0 16px; 
+            font-size: 2rem; 
+            color: #d7f1ff;
+            text-shadow: 0 0 12px rgba(125, 255, 242, 0.2);
+        }
+        
+        h3 {
+            margin: 14px 0 12px;
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+        
+        p.lead { 
+            margin: 0 0 18px; 
+            color: var(--muted); 
+            line-height: 1.6; 
+        }
+
+        .section { 
+            margin-top: 28px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .example {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 16px;
+            border-radius: 12px;
+            color: #e8f7ff;
+            line-height: 1.7;
+            margin-top: 12px;
+        }
+
+        .controls { display:flex; gap:12px; margin-top:12px; align-items:center; flex-wrap:wrap; }
+
+        input[type="text"], textarea {
+            flex:1 1 320px;
+            padding:10px 12px;
+            border-radius:10px;
+            border:1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.03);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        button.calc {
+            padding:10px 14px; border-radius:10px; border:1px solid var(--button-border);
+            background: linear-gradient(135deg, rgba(125,255,242,0.95), rgba(98,193,255,0.92)); color:#06243a; font-weight:700; cursor:pointer;
+        }
+
+        .result { margin-top:14px; font-weight:700; color: var(--accent); }
+
+        .back-link { 
+            display: inline-block; 
+            margin-top: 24px; 
+            color: var(--muted); 
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        ul, ol { 
+            line-height: 1.8; 
+            color: #d8eaff;
+            margin: 8px 0;
+            padding-left: 24px;
+        }
+
+        li { 
+            margin-bottom: 10px; 
+        }
+
+        @media (max-width:720px) { 
+            .card { 
+                padding: 26px 18px; 
+            }
+            
+            h1.title {
+                font-size: 1.6rem;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="card">
+            <h1 class="title">Termo Geral</h1>
+            <p style="text-align: center; color: var(--accent); margin: 0 0 22px; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase;">Expressões Geradoras de Sequências</p>
+            <p class="lead">O termo geral (ou expressão geradora) é uma fórmula matemática que permite calcular diretamente qualquer termo de uma sequência numérica, desde que se saiba a sua posição (ordem). É como uma "chave-mestra" que descobre o valor de qualquer elemento.</p>
+
+            <div class="section">
+                <h3>Componentes Principais</h3>
+                <ul>
+                    <li><strong>A ordem (n):</strong> A posição do número na sequência (1.º, 2.º, 3.º, etc.).</li>
+                    <li><strong>O termo</strong> $$u_n \text{ ou } a_n$$: O valor real que está nessa posição.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Exemplo Prático</h3>
+                <div class="example">
+                    <p><strong>Considere a sequência:</strong> 2, 4, 6, 8, 10, ...</p>
+                    <ul>
+                        <li>Termo 1: 2 (aqui $$u_1 = 2$$)</li>
+                        <li>Termo 2: 4 (aqui $$u_2 = 4$$)</li>
+                        <li>Termo 3: 6 (aqui $$u_3 = 6$$)</li>
+                    </ul>
+                    <p><strong>Fórmula geral:</strong> $$u_n = 2n$$</p>
+                    <p><em>Assim, se quiser calcular o termo 100:</em> $$u_{100} = 2 \times 100 = 200$$</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Como Descobrir o Termo Geral?</h3>
+                <ol>
+                    <li>Observe cuidadosamente a sequência de números.</li>
+                    <li>Encontre a diferença comum entre os termos (para sequências aritméticas).</li>
+                    <li>Escreva a fórmula em função de n (a posição).</li>
+                    <li>Verifique se a fórmula funciona corretamente para todos os termos.</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h3>Outro Exemplo</h3>
+                <div class="example">
+                    <p><strong>Sequência:</strong> 3, 7, 11, 15, 19, ...</p>
+                    <p><strong>Diferença comum:</strong> 4</p>
+                    <p><strong>Fórmula geral:</strong> $$u_n = 4n - 1$$</p>
+                    <p><strong>Verificação:</strong></p>
+                    <ul>
+                        <li>$$u_1 = 4(1) - 1 = 3$$ ✓</li>
+                        <li>$$u_2 = 4(2) - 1 = 7$$ ✓</li>
+                        <li>$$u_3 = 4(3) - 1 = 11$$ ✓</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Exercícios Práticos</h3>
+                <div class="example">
+                    <p>Escolha um exercício, escreva os seus cálculos passo a passo na caixa abaixo e indique o termo geral encontrado. Clique em <strong>Resolução</strong> para verificar.</p>
+                    <p><strong>Exercício atual:</strong> <span id="exercisePrompt">Carregue em 'Próximo exercício' para iniciar.</span></p>
+                    <div class="controls">
+                        <button id="prevExercise" class="calc">Exercício anterior</button>
+                        <button id="nextExercise" class="calc">Próximo exercício</button>
+                    </div>
+                </div>
+                <div style="margin-top:14px;">
+                    <label for="work" style="display:block; margin-bottom:8px;">Cálculos / raciocínio:</label>
+                    <textarea id="work" placeholder="Escreva aqui os seus cálculos passo a passo..."></textarea>
+                </div>
+                <div style="margin-top:14px;">
+                    <label for="finalAnswer" style="display:block; margin-bottom:8px;">Termo geral (ex: 2n, n+1, 3n-2):</label>
+                    <input id="finalAnswer" type="text" placeholder="Escreva o termo geral encontrado">
+                </div>
+                <button id="checkSolution" class="calc" style="margin-top:14px;">Resolução</button>
+                <div id="exerciseResult" class="result" aria-live="polite"></div>
+            </div>
+
+            <a class="back-link" href="EstudoDeMaths3.html">← Voltar</a>
+        </div>
+    </div>
+</body>
+</html>

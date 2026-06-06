@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediana</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #05121f;
+            --panel: rgba(7, 27, 55, 0.92);
+            --panel-border: rgba(255, 255, 255, 0.12);
+            --text: #e8f2ff;
+            --muted: #afcdfa;
+            --accent: #7dfff2;
+            --button-bg: rgba(125, 255, 242, 0.18);
+            --button-border: rgba(125, 255, 242, 0.35);
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf7aiJ7E9F-bEzDqvJK3wInz93qMVdYEPy5Q&s") center/cover no-repeat fixed;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 11, 28, 0.72);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-wrapper { position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 40px 20px; }
+
+        .card {
+            width: min(100%, 980px);
+            background: var(--panel);
+            border-radius: 20px;
+            border: 1px solid var(--panel-border);
+            padding: 34px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+            backdrop-filter: blur(8px);
+        }
+
+        h1.title { margin: 0 0 8px; font-size: 2rem; color: #d7f1ff; }
+        p.lead { margin: 0 0 18px; color: var(--muted); line-height: 1.6; }
+
+        .section { margin-top: 18px; }
+
+        .example {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 14px;
+            border-radius: 12px;
+            color: #e8f7ff;
+        }
+
+        .controls { display:flex; gap:12px; margin-top:12px; align-items:center; flex-wrap:wrap; }
+
+        input[type="text"], textarea {
+            flex:1 1 320px;
+            padding:10px 12px;
+            border-radius:10px;
+            border:1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.03);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        button.calc {
+            padding:10px 14px; border-radius:10px; border:1px solid var(--button-border);
+            background: linear-gradient(135deg, rgba(125,255,242,0.95), rgba(98,193,255,0.92)); color:#06243a; font-weight:700; cursor:pointer;
+        }
+
+        .result { margin-top:14px; font-weight:700; color: var(--accent); }
+
+        .back-link { display:inline-block; margin-top:18px; color:var(--muted); text-decoration:none; }
+
+        @media (max-width:720px) { .card { padding:20px; } }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="card">
+            <h1 class="title">Mediana</h1>
+            <p class="lead">A mediana é o valor central de um conjunto de dados ordenados. Para conjuntos com um número par de valores, a mediana é a média dos dois valores centrais.</p>
+
+            <div class="section">
+                <h3>Como encontrar a mediana</h3>
+                <ul>
+                    <li>Ordene os valores do menor para o maior.</li>
+                    <li>Se houver um único valor central (n impar), esse é a mediana.</li>
+                    <li>Se houver dois valores centrais (n par), a mediana é a média aritmética desses dois valores.</li>
+                </ul>
+            </div>
+
+            <div class="section example">
+                <strong>Exemplo:</strong>
+                <div style="margin-top:8px;">Números: 5, 3, 9, 11, 15 → Ordenados: 3, 5, 9, 11, 15 → Mediana: <strong>9</strong></div>
+            </div>
+
+            <div class="section">
+                <h3>Calculadora rápida</h3>
+                <div class="controls">
+                    <input id="numbers" type="text" placeholder="Escreva números separados por vírgula, ex: 3,5,9,11,15">
+                    <button id="calc" class="calc">Calcular</button>
+                </div>
+                <div id="output" class="result" aria-live="polite"></div>
+                <div id="sorted" style="margin-top:8px;color:var(--muted);"></div>
+            </div>
+
+            <div class="section">
+                <h3>Observação: média aritmética</h3>
+                <p class="lead">Alguns podem perguntar: «O que é a média aritmética?» A média aritmética é o valor obtido ao somar todos os dados e dividir pelo número de dados.</p>
+                <p class="lead">Exemplo: para o conjunto 15, 4, 2, 17, 13, 3 — ordenando: 2, 3, 4, 13, 15, 17. Como o conjunto tem um número par de elementos, a mediana é a média dos dois valores centrais (4 e 13): (4 + 13) / 2 = 8.5 que agora já é a mediana.</p>
+            </div>
+
+            <div class="section">
+                <h3>Exercícios</h3>
+                <div class="example">
+                    <p>Escolha um exercício e escreva os cálculos à mão na caixa abaixo. Depois indique a mediana final e clique em <strong>Resolução</strong>.</p>
+                    <p><strong>Exercício atual:</strong> <span id="exercisePrompt">Carregue em 'Próximo exercício' para iniciar.</span></p>
+                    <div class="controls">
+                        <button id="prevExercise" class="calc">Exercício anterior</button>
+                        <button id="nextExercise" class="calc">Próximo exercício</button>
+                    </div>
+                </div>
+                <div style="margin-top:14px;">
+                    <label for="work" style="display:block; margin-bottom:8px;">Cálculos / raciocínio:</label>
+                    <textarea id="work" placeholder="Escreva aqui os seus cálculos passo a passo..."></textarea>
+                </div>
+                <div style="margin-top:14px;">
+                    <label for="finalAnswer" style="display:block; margin-bottom:8px;">Mediana final:</label>
+                    <input id="finalAnswer" type="text" placeholder="Escreva aqui a mediana final">
+                </div>
+                <button id="checkSolution" class="calc" style="margin-top:14px;">Resolução</button>
+                <div id="exerciseResult" class="result" aria-live="polite"></div>
+            </div>
+
+            <a class="back-link" href="EstudoDeMaths3.html">← Voltar</a>
+        </div>
+    </div>
+
+    <script>
+        function computeMedian(arr){
+            if(!arr.length) return null;
+            arr = arr.slice().sort(function(a,b){return a-b;});
+            var n = arr.length;
+            if(n%2===1) return arr[(n-1)/2];
+            return (arr[n/2 -1] + arr[n/2]) / 2;
+        }
+
+        document.getElementById('calc').addEventListener('click', function(){
+            var raw = document.getElementById('numbers').value;
+            var parts = raw.split(/[,\s]+/).map(function(s){return s.trim();}).filter(Boolean);
+            var nums = parts.map(function(p){return Number(p.replace(',','.'));}).filter(function(x){return !isNaN(x);});
+            var out = document.getElementById('output');
+            var sortedEl = document.getElementById('sorted');
+            if(!nums.length){ out.textContent = 'Por favor insira pelo menos um número válido.'; sortedEl.textContent=''; return; }
+            nums.sort(function(a,b){return a-b;});
+            var med = computeMedian(nums);
+            out.textContent = 'Mediana: ' + med;
+            sortedEl.textContent = 'Ordenados: ' + nums.join(', ');
+        });
+
+        var exercises = [
+            { prompt: '7, 3, 5, 9, 12', answer: 7 },
+            { prompt: '4, 8, 2, 6', answer: 5 },
+            { prompt: '1, 10, 4, 7, 3, 6', answer: 5 },
+        ];
+        var currentExercise = 0;
+
+        function renderExercise() {
+            var exercise = exercises[currentExercise];
+            document.getElementById('exercisePrompt').textContent = 'Números: ' + exercise.prompt;
+            document.getElementById('exerciseResult').textContent = '';
+            document.getElementById('finalAnswer').value = '';
+            document.getElementById('work').value = '';
+        }
+
+        document.getElementById('nextExercise').addEventListener('click', function() {
+            currentExercise = (currentExercise + 1) % exercises.length;
+            renderExercise();
+        });
+
+        document.getElementById('prevExercise').addEventListener('click', function() {
+            currentExercise = (currentExercise - 1 + exercises.length) % exercises.length;
+            renderExercise();
+        });
+
+        document.getElementById('checkSolution').addEventListener('click', function() {
+            var userAnswer = document.getElementById('finalAnswer').value.trim().replace(',', '.');
+            var result = document.getElementById('exerciseResult');
+            if(userAnswer === '') {
+                result.textContent = 'Escreva a sua resposta na caixa de mediana final antes de verificar.';
+                return;
+            }
+            var numeric = Number(userAnswer);
+            if(isNaN(numeric)) {
+                result.textContent = 'Por favor, insira um número válido como mediana.';
+                return;
+            }
+            var correct = exercises[currentExercise].answer;
+            if(Math.abs(numeric - correct) < 0.0001) {
+                result.textContent = 'Correto! A mediana está certa.';
+            } else {
+                result.textContent = 'Errado. A resposta certa é ' + correct + '.';
+            }
+        });
+
+        // Enter key support
+        document.getElementById('numbers').addEventListener('keydown', function(e){ if(e.key==='Enter'){ document.getElementById('calc').click(); } });
+
+        renderExercise();
+    </script>
+
+    <p class="lead" style="margin-top:18px; text-align:center;">Está na minha opinião é a matéria mais fácil do 7º ano em matemática :D. E sim... isto é tudo sobre a mediana...</p>
+</body>
+</html>
+
+
