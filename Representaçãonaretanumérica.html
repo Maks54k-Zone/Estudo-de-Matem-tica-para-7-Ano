@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Representação na Reta Numérica</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #05121f;
+            --panel: rgba(7, 27, 55, 0.92);
+            --panel-border: rgba(255, 255, 255, 0.12);
+            --text: #e8f2ff;
+            --muted: #afcdfa;
+            --accent: #7dfff2;
+            --button-border: rgba(125, 255, 242, 0.35);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: url("https://img.magnific.com/vetores-gratis/vetor-de-fundo-matematico-e-geometrico-em-remix-de-educacao-azul-gradiente_53876-114100.jpg?w=360") center/cover no-repeat fixed;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 11, 28, 0.72);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-wrapper {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .card {
+            width: min(100%, 980px);
+            background: var(--panel);
+            border-radius: 22px;
+            border: 1px solid var(--panel-border);
+            padding: 36px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+            backdrop-filter: blur(10px);
+        }
+
+        .page-title {
+            margin: 0 0 12px;
+            font-size: clamp(2.4rem, 2.1vw, 3.4rem);
+            text-align: center;
+            color: #d7f1ff;
+            text-shadow: 0 0 14px rgba(125, 255, 242, 0.28);
+        }
+
+        .description {
+            margin: 0 0 24px;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .section {
+            margin-top: 24px;
+        }
+
+        .section h2,
+        .section h3 {
+            margin: 0 0 12px;
+            color: #e8f7ff;
+        }
+
+        .section p,
+        .section ul,
+        .section ol {
+            margin: 0 0 14px;
+            line-height: 1.75;
+        }
+
+        ul { padding-left: 20px; }
+
+        .example,
+        .exercise-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 22px;
+            color: #e8f7ff;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.03);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        button.calc {
+            padding: 12px 18px;
+            border-radius: 14px;
+            border: 1px solid var(--button-border);
+            background: linear-gradient(135deg, rgba(125,255,242,0.95), rgba(98,193,255,0.92));
+            color: #06243a;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+        }
+
+        button.calc:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 24px rgba(0,0,0,0.18);
+            filter: brightness(1.03);
+        }
+
+        .result {
+            margin-top: 14px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 22px;
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        @media (max-width: 720px) {
+            .card { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="card">
+            <h1 class="page-title">Representação na Reta Numérica</h1>
+            <p class="description">A reta numérica ajuda a visualizar números inteiros e racionais em relação ao zero. No 7.º ano, essa representação facilita a comparação, o cálculo de distância e o entendimento dos números negativos.</p>
+
+            <div class="section example">
+                <h2>O que mostra a reta numérica?</h2>
+                <p>Uma reta numérica é uma linha orientada em que:</p>
+                <ul>
+                    <li>O zero fica no centro.</li>
+                    <li>Os números aumentam da esquerda para a direita.</li>
+                    <li>Os números negativos ficam à esquerda do zero.</li>
+                    <li>Os números positivos ficam à direita do zero.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Conceitos importantes</h3>
+                <ul>
+                    <li>Origem: ponto onde está o zero.</li>
+                    <li>Simétrico (ou oposto): números na mesma distância do zero, mas em lados opostos, por exemplo -3 e 3.</li>
+                    <li>Valor absoluto: distância do número ao zero; por exemplo, | -5 | = 5.</li>
+                    <li>Adição e subtração: somar desloca para a direita e subtrair desloca para a esquerda.</li>
+                </ul>
+            </div>
+
+            <div class="section exercise-box">
+                <h2>Exercícios</h2>
+                <p>Responda ao exercício abaixo e clique em <strong>Verificar</strong>.</p>
+                <p><strong>Exercício atual:</strong> <span id="exercisePrompt">Carregue em «Próximo exercício» para iniciar.</span></p>
+                <p id="exerciseQuestion"></p>
+                <div class="controls">
+                    <button id="prevExercise" class="calc">Exercício anterior</button>
+                    <button id="nextExercise" class="calc">Próximo exercício</button>
+                </div>
+
+                <div style="margin-top: 18px;">
+                    <label for="finalAnswer" style="display:block; margin-bottom:8px;">Resposta:</label>
+                    <input id="finalAnswer" type="text" placeholder="Escreva a resposta aqui">
+                </div>
+                <button id="checkSolution" class="calc" style="margin-top: 16px;">Verificar</button>
+                <div id="exerciseResult" class="result" aria-live="polite"></div>
+            </div>
+
+            <a class="back-link" href="EstudoDeMaths1.html">← Voltar</a>
+        </div>
+    </div>
+
+    <script>
+        var exercises = [
+            {
+                prompt: 'Localização na reta',
+                question: 'Qual número está à esquerda do zero na reta numérica: 2, -1 ou 5?',
+                answer: '-1'
+            },
+            {
+                prompt: 'Simétrico',
+                question: 'Qual é o simétrico de -4 na reta numérica?',
+                answer: '4'
+            },
+            {
+                prompt: 'Valor absoluto',
+                question: 'Qual é o valor absoluto de -7?',
+                answer: '7'
+            },
+            {
+                prompt: 'Acrescentar unidades',
+                question: 'Se você somar 3 a -2 na reta numérica, qual número você alcança?',
+                answer: '1'
+            }
+        ];
+
+        var currentExercise = 0;
+
+        function normalizeText(text) {
+            return String(text || '').trim().toLowerCase().replace(/\s+/g, '');
+        }
+
+        function renderExercise() {
+            var exercise = exercises[currentExercise];
+            document.getElementById('exercisePrompt').textContent = exercise.prompt;
+            document.getElementById('exerciseQuestion').textContent = exercise.question;
+            document.getElementById('exerciseResult').textContent = '';
+            document.getElementById('finalAnswer').value = '';
+        }
+
+        document.getElementById('nextExercise').addEventListener('click', function() {
+            currentExercise = (currentExercise + 1) % exercises.length;
+            renderExercise();
+        });
+
+        document.getElementById('prevExercise').addEventListener('click', function() {
+            currentExercise = (currentExercise - 1 + exercises.length) % exercises.length;
+            renderExercise();
+        });
+
+        document.getElementById('checkSolution').addEventListener('click', function() {
+            var userAnswer = document.getElementById('finalAnswer').value;
+            var result = document.getElementById('exerciseResult');
+            if (!userAnswer.trim()) {
+                result.textContent = 'Por favor, escreva a sua resposta antes de verificar.';
+                return;
+            }
+
+            var expected = exercises[currentExercise].answer;
+            var normalizedUser = normalizeText(userAnswer);
+            var normalizedExpected = normalizeText(expected);
+
+            if (normalizedUser === normalizedExpected) {
+                result.textContent = 'Correto! A resposta está certa.';
+            } else {
+                result.textContent = 'Resposta errada. A resposta certa é ' + expected + '.';
+            }
+        });
+
+        renderExercise();
+    </script>
+</body>
+</html>
