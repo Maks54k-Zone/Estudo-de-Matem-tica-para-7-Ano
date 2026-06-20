@@ -4,17 +4,267 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #05121f;
+            --panel: rgba(7, 27, 55, 0.92);
+            --panel-border: rgba(255, 255, 255, 0.12);
+            --text: #e8f2ff;
+            --muted: #afcdfa;
+            --accent: #7dfff2;
+            --button-border: rgba(125, 255, 242, 0.35);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: url("https://img.magnific.com/vetores-gratis/vetor-de-fundo-matematico-e-geometrico-em-remix-de-educacao-azul-gradiente_53876-114100.jpg?w=360") center/cover no-repeat fixed;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 11, 28, 0.72);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-wrapper {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .card {
+            width: min(100%, 980px);
+            background: var(--panel);
+            border-radius: 22px;
+            border: 1px solid var(--panel-border);
+            padding: 36px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+            backdrop-filter: blur(10px);
+        }
+
+        .page-title {
+            margin: 0 0 12px;
+            font-size: clamp(2.4rem, 2.1vw, 3.4rem);
+            text-align: center;
+            color: #d7f1ff;
+            text-shadow: 0 0 14px rgba(125, 255, 242, 0.28);
+        }
+
+        .description {
+            margin: 0 0 24px;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .section {
+            margin-top: 24px;
+        }
+
+        .section h2,
+        .section h3 {
+            margin: 0 0 12px;
+            color: #e8f7ff;
+        }
+
+        .section p,
+        .section ul,
+        .section ol {
+            margin: 0 0 14px;
+            line-height: 1.75;
+        }
+
+        ul { padding-left: 20px; }
+
+        .example,
+        .exercise-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 22px;
+            color: #e8f7ff;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.03);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        button.calc {
+            padding: 12px 18px;
+            border-radius: 14px;
+            border: 1px solid var(--button-border);
+            background: linear-gradient(135deg, rgba(125,255,242,0.95), rgba(98,193,255,0.92));
+            color: #06243a;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+        }
+
+        button.calc:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 24px rgba(0,0,0,0.18);
+            filter: brightness(1.03);
+        }
+
+        .result {
+            margin-top: 14px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 22px;
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        @media (max-width: 720px) {
+            .card { padding: 24px; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Módulo</h1>
-    <p>O módulo ou valor absoluto de um número é a distância de um número até ao zero na reta numérica. Como representa uma distância, é sempre um valor positivo (ou zero). É representado matematicamente por duas barras verticais.</p>
-    <h2>Exemplos práticos</h2>
-    <ul>
-        <li>O módulo de +5 é 5, porque está a 5 unidades de distância do zero: |+5| = 5.</li>
-        <li>O módulo de -7 é 7, porque também está a 7 unidades de distância do zero: |-7| = 7.</li>
-    </ul>
+    <div class="page-wrapper">
+        <div class="card">
+            <h1 class="page-title">Módulo</h1>
+            <p class="description">O módulo mostra a distância entre um número e o zero na reta numérica. Em qualquer número inteiro, o módulo é sempre um valor não negativo: positivo ou zero.</p>
 
-    <h3>Por que é importante no 7º ano?</h3>
-    <p>Este conceito é introduzido para consolidar a compreensão sobre números simétricos (números com sinais diferentes, mas com o mesmo valor absoluto, como -3 e +3) e para preparar o aluno para o cálculo de distâncias na reta e operações com números inteiros.</p>
+            <div class="section example">
+                <h2>O que é módulo?</h2>
+                <p>O módulo de um número indica a sua distância ao zero e é representado por barras verticais.</p>
+                <ul>
+                    <li>Exemplo: <strong>|+5| = 5</strong></li>
+                    <li>Exemplo: <strong>|-7| = 7</strong></li>
+                    <li>Exemplo: <strong>|0| = 0</strong></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Por que é importante?</h3>
+                <ul>
+                    <li>Mostra que -3 e +3 têm o mesmo valor absoluto, porque estão à mesma distância do zero.</li>
+                    <li>Ajuda a entender distâncias na reta numérica e a comparar números relativos.</li>
+                    <li>Prepara para operações com números inteiros e para problemas de valor absoluto.</li>
+                </ul>
+            </div>
+
+            <div class="section exercise-box">
+                <h2>Exercícios</h2>
+                <p>Responda ao exercício e clique em <strong>Verificar</strong> para saber se está correto.</p>
+                <p><strong>Exercício atual:</strong> <span id="exercisePrompt">Carregue em «Próximo exercício» para iniciar.</span></p>
+                <p id="exerciseQuestion"></p>
+                <div class="controls">
+                    <button id="prevExercise" class="calc">Exercício anterior</button>
+                    <button id="nextExercise" class="calc">Próximo exercício</button>
+                </div>
+
+                <div style="margin-top: 18px;">
+                    <label for="finalAnswer" style="display:block; margin-bottom:8px;">Resposta:</label>
+                    <input id="finalAnswer" type="text" placeholder="Escreva a resposta aqui">
+                </div>
+                <button id="checkSolution" class="calc" style="margin-top: 16px;">Verificar</button>
+                <div id="exerciseResult" class="result" aria-live="polite"></div>
+            </div>
+
+            <a class="back-link" href="EstudoDeMaths1.html">← Voltar</a>
+        </div>
+    </div>
+
+    <script>
+        var exercises = [
+            {
+                prompt: 'Módulo de número positivo',
+                question: 'Qual é o valor de |+5|?',
+                answer: '5'
+            },
+            {
+                prompt: 'Módulo de número negativo',
+                question: 'Qual é o valor de |-8|?',
+                answer: '8'
+            },
+            {
+                prompt: 'Módulo do zero',
+                question: 'Qual é o valor de |0|?',
+                answer: '0'
+            },
+            {
+                prompt: 'Valor absoluto',
+                question: 'Qual é o valor absoluto de -3?',
+                answer: '3'
+            }
+        ];
+
+        var currentExercise = 0;
+
+        function normalizeText(text) {
+            return String(text || '').trim().toLowerCase().replace(/\s+/g, '');
+        }
+
+        function renderExercise() {
+            var exercise = exercises[currentExercise];
+            document.getElementById('exercisePrompt').textContent = exercise.prompt;
+            document.getElementById('exerciseQuestion').textContent = exercise.question;
+            document.getElementById('exerciseResult').textContent = '';
+            document.getElementById('finalAnswer').value = '';
+        }
+
+        document.getElementById('nextExercise').addEventListener('click', function() {
+            currentExercise = (currentExercise + 1) % exercises.length;
+            renderExercise();
+        });
+
+        document.getElementById('prevExercise').addEventListener('click', function() {
+            currentExercise = (currentExercise - 1 + exercises.length) % exercises.length;
+            renderExercise();
+        });
+
+        document.getElementById('checkSolution').addEventListener('click', function() {
+            var userAnswer = document.getElementById('finalAnswer').value;
+            var result = document.getElementById('exerciseResult');
+            if (!userAnswer.trim()) {
+                result.textContent = 'Por favor, escreva a sua resposta antes de verificar.';
+                return;
+            }
+
+            var expected = exercises[currentExercise].answer;
+            var normalizedUser = normalizeText(userAnswer);
+            var normalizedExpected = normalizeText(expected);
+
+            if (normalizedUser === normalizedExpected) {
+                result.textContent = 'Correto! A resposta está certa.';
+            } else {
+                result.textContent = 'Resposta errada. A resposta certa é ' + expected + '.';
+            }
+        });
+
+        renderExercise();
+    </script>
 </body>
 </html>

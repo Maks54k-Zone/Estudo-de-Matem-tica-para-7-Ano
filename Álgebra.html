@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conceito de número inteiro</title>
+    <title>Álgebra</title>
     <style>
         :root {
             color-scheme: dark;
@@ -51,7 +51,7 @@
             border-radius: 22px;
             border: 1px solid var(--panel-border);
             padding: 36px;
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 24px 80px rgba(0,0,0,0.35);
             backdrop-filter: blur(10px);
         }
 
@@ -90,19 +90,11 @@
 
         .example,
         .exercise-box {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
             border-radius: 16px;
             padding: 22px;
             color: #e8f7ff;
-        }
-
-        .example ul {
-            list-style: disc inside;
-        }
-
-        .example ul ul {
-            list-style: circle inside;
         }
 
         .controls {
@@ -116,8 +108,8 @@
             width: 100%;
             padding: 14px 16px;
             border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.03);
             color: var(--text);
             font-family: inherit;
             font-size: 1rem;
@@ -127,7 +119,7 @@
             padding: 12px 18px;
             border-radius: 14px;
             border: 1px solid var(--button-border);
-            background: linear-gradient(135deg, rgba(125, 255, 242, 0.95), rgba(98, 193, 255, 0.92));
+            background: linear-gradient(135deg, rgba(125,255,242,0.95), rgba(98,193,255,0.92));
             color: #06243a;
             font-weight: 700;
             cursor: pointer;
@@ -136,7 +128,7 @@
 
         button.calc:hover {
             transform: translateY(-2px);
-            box-shadow: 0 14px 24px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 14px 24px rgba(0,0,0,0.18);
             filter: brightness(1.03);
         }
 
@@ -161,46 +153,32 @@
 <body>
     <div class="page-wrapper">
         <div class="card">
-            <h1 class="page-title">Conceito de número inteiro</h1>
-            <p class="description">No 7.º ano, os números inteiros mostram como os naturais são ampliados para incluir o zero e valores negativos. Este conteúdo é importante para entender comparações, operações e o uso de sinais.</p>
+            <h1 class="page-title">Álgebra</h1>
+            <p class="description">No 7.º ano, a Álgebra introduz letras para representar números desconhecidos e expressões algébricas. A seguir tens conceitos essenciais e exercícios para praticar.</p>
 
             <div class="section example">
-                <h2>O que são os números inteiros?</h2>
-                <p>O conjunto dos números inteiros é denotado por <strong>ℤ</strong> e inclui:</p>
+                <h2>Conceitos principais</h2>
                 <ul>
-                    <li>Inteiros positivos: <strong>1, 2, 3, ...</strong></li>
-                    <li>Zero: <strong>0</strong></li>
-                    <li>Inteiros negativos: <strong>-1, -2, -3, ...</strong></li>
+                    <li><strong>Expressões</strong>: combinações de números, letras e operações (ex.: 3x + 5).</li>
+                    <li><strong>Monómios</strong>: produto de número e variáveis (ex.: 2x).</li>
+                    <li><strong>Polinómios</strong>: soma de monómios (ex.: 2x² + 3x - 1).</li>
+                    <li><strong>Equações do 1.º grau</strong>: igualdades que resolves isolando a incógnita (ex.: 2x + 3 = 11 → x = 4).</li>
                 </ul>
             </div>
 
             <div class="section">
-                <h3>Por que estudar inteiros?</h3>
+                <h3>Regras úteis</h3>
                 <ul>
-                    <li>Comparar e ordenar valores: em inteiros, -10 é menor que -2.</li>
-                    <li>Somar e subtrair: 3 - 5 pode ser escrito como 3 + (-5) = -2.</li>
-                    <li>Multiplicação e Divisão (Regra dos Sinais): Dominar como os sinais interagem.
-            <ul>
-                <li>Sinais iguais dão resultado positivo (ex: -3 × -4 = +12).</li>
-                <li>Sinais diferentes dão resultado negativo (ex: -12 ÷ 3 = -4).</li>
-            </ul>
-        </li>
-        <li>Resolução de Problemas: Aplicar estas regras a contextos reais e expressões numéricas.</li>
-                </ul>
-            </div>
-
-            <div class="section example">
-                <h3>Regra dos sinais</h3>
-                <ul>
-                    <li>Sinais iguais: resultado positivo. Ex: -3 × -4 = +12.</li>
-                    <li>Sinais diferentes: resultado negativo. Ex: -12 ÷ 3 = -4.</li>
+                    <li>Agrupar termos semelhantes para simplificar.</li>
+                    <li>Ao passar um termo para o outro lado do =, inverte-se o sinal.</li>
+                    <li>Verifica sempre substituindo a solução na equação original.</li>
                 </ul>
             </div>
 
             <div class="section exercise-box">
                 <h2>Exercícios</h2>
-                <p>Responda ao exercício e clique em <strong>Verificar</strong> para saber se está certo.</p>
-                <p><strong>Exercício atual:</strong> <span id="exercisePrompt">Carregue em «Próximo exercício» para iniciar.</span></p>
+                <p>Escolhe exercício, escreve a resposta e clica em <strong>Verificar</strong>.</p>
+                <p><strong>Exercício atual:</strong> <span id="exercisePrompt">Carrega em «Próximo exercício» para iniciar.</span></p>
                 <p id="exerciseQuestion"></p>
                 <div class="controls">
                     <button id="prevExercise" class="calc">Exercício anterior</button>
@@ -209,7 +187,7 @@
 
                 <div style="margin-top: 18px;">
                     <label for="finalAnswer" style="display:block; margin-bottom:8px;">Resposta:</label>
-                    <input id="finalAnswer" type="text" placeholder="Escreva a resposta aqui">
+                    <input id="finalAnswer" type="text" placeholder="Escreve a resposta aqui">
                 </div>
                 <button id="checkSolution" class="calc" style="margin-top: 16px;">Verificar</button>
                 <div id="exerciseResult" class="result" aria-live="polite"></div>
@@ -221,69 +199,34 @@
 
     <script>
         var exercises = [
-            {
-                prompt: 'Conjunto',
-                question: 'Qual símbolo usamos para representar o conjunto dos números inteiros?',
-                answer: 'ℤ'
-            },
-            {
-                prompt: 'Número negativo',
-                question: 'Qual é o inteiro cinco unidades abaixo de zero?',
-                answer: '-5'
-            },
-            {
-                prompt: 'Sinal da multiplicação',
-                question: 'Qual é o sinal de -4 × -3?',
-                answer: 'positivo'
-            },
-            {
-                prompt: 'Zero',
-                question: 'O número zero é positivo, negativo ou nenhum dos dois?',
-                answer: 'nenhum'
-            }
+            { prompt: 'Simplificação', question: 'Simplifica: 2x + 3x = ?', answer: '5x' },
+            { prompt: 'Equação simples', question: 'Resolve: 2x + 3 = 11. Qual é x?', answer: '4' },
+            { prompt: 'Avaliação', question: 'Se x = 3, calcula: 2x + 5 = ?', answer: '11' },
+            { prompt: 'Monómios e sinais', question: 'Simplifica: 5a - 2a = ?', answer: '3a' }
         ];
 
         var currentExercise = 0;
 
-        function normalizeText(text) {
-            return String(text || '').trim().toLowerCase().replace(/\s+/g, '').replace(/\+/g, '');
-        }
+        function normalizeText(text) { return String(text || '').trim().toLowerCase().replace(/\s+/g,''); }
 
-        function renderExercise() {
-            var exercise = exercises[currentExercise];
-            document.getElementById('exercisePrompt').textContent = exercise.prompt;
-            document.getElementById('exerciseQuestion').textContent = exercise.question;
+        function renderExercise(){
+            var ex = exercises[currentExercise];
+            document.getElementById('exercisePrompt').textContent = ex.prompt;
+            document.getElementById('exerciseQuestion').textContent = ex.question;
             document.getElementById('exerciseResult').textContent = '';
             document.getElementById('finalAnswer').value = '';
         }
 
-        document.getElementById('nextExercise').addEventListener('click', function() {
-            currentExercise = (currentExercise + 1) % exercises.length;
-            renderExercise();
-        });
+        document.getElementById('nextExercise').addEventListener('click', function(){ currentExercise = (currentExercise + 1) % exercises.length; renderExercise(); });
+        document.getElementById('prevExercise').addEventListener('click', function(){ currentExercise = (currentExercise - 1 + exercises.length) % exercises.length; renderExercise(); });
 
-        document.getElementById('prevExercise').addEventListener('click', function() {
-            currentExercise = (currentExercise - 1 + exercises.length) % exercises.length;
-            renderExercise();
-        });
-
-        document.getElementById('checkSolution').addEventListener('click', function() {
-            var userAnswer = document.getElementById('finalAnswer').value;
+        document.getElementById('checkSolution').addEventListener('click', function(){
+            var user = document.getElementById('finalAnswer').value;
             var result = document.getElementById('exerciseResult');
-            if (!userAnswer.trim()) {
-                result.textContent = 'Por favor, escreva a sua resposta antes de verificar.';
-                return;
-            }
-
+            if(!user.trim()){ result.textContent = 'Por favor, escreve a tua resposta.'; return; }
             var expected = exercises[currentExercise].answer;
-            var normalizedUser = normalizeText(userAnswer);
-            var normalizedExpected = normalizeText(expected);
-
-            if (normalizedUser === normalizedExpected) {
-                result.textContent = 'Correto! A resposta está certa.';
-            } else {
-                result.textContent = 'Resposta errada. A resposta certa é ' + expected + '.';
-            }
+            if(normalizeText(user) === normalizeText(expected)) result.textContent = 'Correto!';
+            else result.textContent = 'Errado. Resposta certa: ' + expected + '.';
         });
 
         renderExercise();

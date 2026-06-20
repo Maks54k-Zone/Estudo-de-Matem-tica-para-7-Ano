@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conceito de número inteiro</title>
+    <title>Potências</title>
     <style>
         :root {
             color-scheme: dark;
@@ -51,7 +51,7 @@
             border-radius: 22px;
             border: 1px solid var(--panel-border);
             padding: 36px;
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 24px 80px rgba(0,0,0,0.35);
             backdrop-filter: blur(10px);
         }
 
@@ -90,19 +90,11 @@
 
         .example,
         .exercise-box {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
             border-radius: 16px;
             padding: 22px;
             color: #e8f7ff;
-        }
-
-        .example ul {
-            list-style: disc inside;
-        }
-
-        .example ul ul {
-            list-style: circle inside;
         }
 
         .controls {
@@ -116,8 +108,8 @@
             width: 100%;
             padding: 14px 16px;
             border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.03);
             color: var(--text);
             font-family: inherit;
             font-size: 1rem;
@@ -127,7 +119,7 @@
             padding: 12px 18px;
             border-radius: 14px;
             border: 1px solid var(--button-border);
-            background: linear-gradient(135deg, rgba(125, 255, 242, 0.95), rgba(98, 193, 255, 0.92));
+            background: linear-gradient(135deg, rgba(125,255,242,0.95), rgba(98,193,255,0.92));
             color: #06243a;
             font-weight: 700;
             cursor: pointer;
@@ -136,7 +128,7 @@
 
         button.calc:hover {
             transform: translateY(-2px);
-            box-shadow: 0 14px 24px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 14px 24px rgba(0,0,0,0.18);
             filter: brightness(1.03);
         }
 
@@ -153,6 +145,17 @@
             text-decoration: none;
         }
 
+        .disclaimer {
+            background: rgba(220, 38, 38, 0.15);
+            border: 1px solid rgba(220, 38, 38, 0.4);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 28px;
+            color: #fca5a5;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
         @media (max-width: 720px) {
             .card { padding: 24px; }
         }
@@ -161,45 +164,32 @@
 <body>
     <div class="page-wrapper">
         <div class="card">
-            <h1 class="page-title">Conceito de número inteiro</h1>
-            <p class="description">No 7.º ano, os números inteiros mostram como os naturais são ampliados para incluir o zero e valores negativos. Este conteúdo é importante para entender comparações, operações e o uso de sinais.</p>
+            <h1 class="page-title">Potências</h1>
+            <p class="description">No 7.º ano, a potenciação ajuda a simplificar multiplicações repetidas. Aprende as regras e treina com exercícios práticos.</p>
 
             <div class="section example">
-                <h2>O que são os números inteiros?</h2>
-                <p>O conjunto dos números inteiros é denotado por <strong>ℤ</strong> e inclui:</p>
+                <h2>Conceitos principais</h2>
+                <p>Uma potência é escrita como <em>base<sup>expoente</sup></em> onde a base é multiplicada por si própria tantas vezes quanto o expoente indica.</p>
                 <ul>
-                    <li>Inteiros positivos: <strong>1, 2, 3, ...</strong></li>
-                    <li>Zero: <strong>0</strong></li>
-                    <li>Inteiros negativos: <strong>-1, -2, -3, ...</strong></li>
+                    <li><strong>Base</strong>: número que se repete.</li>
+                    <li><strong>Expoente</strong>: número de vezes.</li>
+                    <li><strong>Exemplo</strong>: 2³ = 2 × 2 × 2 = 8.</li>
                 </ul>
             </div>
 
             <div class="section">
-                <h3>Por que estudar inteiros?</h3>
+                <h3>Regras importantes</h3>
                 <ul>
-                    <li>Comparar e ordenar valores: em inteiros, -10 é menor que -2.</li>
-                    <li>Somar e subtrair: 3 - 5 pode ser escrito como 3 + (-5) = -2.</li>
-                    <li>Multiplicação e Divisão (Regra dos Sinais): Dominar como os sinais interagem.
-            <ul>
-                <li>Sinais iguais dão resultado positivo (ex: -3 × -4 = +12).</li>
-                <li>Sinais diferentes dão resultado negativo (ex: -12 ÷ 3 = -4).</li>
-            </ul>
-        </li>
-        <li>Resolução de Problemas: Aplicar estas regras a contextos reais e expressões numéricas.</li>
-                </ul>
-            </div>
-
-            <div class="section example">
-                <h3>Regra dos sinais</h3>
-                <ul>
-                    <li>Sinais iguais: resultado positivo. Ex: -3 × -4 = +12.</li>
-                    <li>Sinais diferentes: resultado negativo. Ex: -12 ÷ 3 = -4.</li>
+                    <li>Multiplicação (mesma base): a^m × a^n = a^{m+n}</li>
+                    <li>Divisão (mesma base): a^m : a^n = a^{m-n}</li>
+                    <li>Potência de potência: (a^m)^n = a^{m×n}</li>
+                    <li>Expoente zero: a⁰ = 1 (a ≠ 0)</li>
                 </ul>
             </div>
 
             <div class="section exercise-box">
                 <h2>Exercícios</h2>
-                <p>Responda ao exercício e clique em <strong>Verificar</strong> para saber se está certo.</p>
+                <p>Escolha um exercício, escreva a resposta e clique em <strong>Verificar</strong>.</p>
                 <p><strong>Exercício atual:</strong> <span id="exercisePrompt">Carregue em «Próximo exercício» para iniciar.</span></p>
                 <p id="exerciseQuestion"></p>
                 <div class="controls">
@@ -215,6 +205,7 @@
                 <div id="exerciseResult" class="result" aria-live="polite"></div>
             </div>
 
+
             <a class="back-link" href="EstudoDeMaths1.html">← Voltar</a>
         </div>
     </div>
@@ -222,31 +213,31 @@
     <script>
         var exercises = [
             {
-                prompt: 'Conjunto',
-                question: 'Qual símbolo usamos para representar o conjunto dos números inteiros?',
-                answer: 'ℤ'
+                prompt: 'Potências básicas',
+                question: 'Calcule: 2³ = ?',
+                answer: '8'
             },
             {
-                prompt: 'Número negativo',
-                question: 'Qual é o inteiro cinco unidades abaixo de zero?',
-                answer: '-5'
+                prompt: 'Soma de expoentes',
+                question: 'Simplifique: a² × a³ = ?',
+                answer: 'a^5'
             },
             {
-                prompt: 'Sinal da multiplicação',
-                question: 'Qual é o sinal de -4 × -3?',
-                answer: 'positivo'
+                prompt: 'Potência numérica',
+                question: 'Calcule: 3³ = ?',
+                answer: '27'
             },
             {
-                prompt: 'Zero',
-                question: 'O número zero é positivo, negativo ou nenhum dos dois?',
-                answer: 'nenhum'
+                prompt: 'Expoente zero',
+                question: 'Qual é o valor de 5⁰ = ?',
+                answer: '1'
             }
         ];
 
         var currentExercise = 0;
 
         function normalizeText(text) {
-            return String(text || '').trim().toLowerCase().replace(/\s+/g, '').replace(/\+/g, '');
+            return String(text || '').trim().toLowerCase().replace(/\s+/g, '').replace(/\u00A0/g,'');
         }
 
         function renderExercise() {
